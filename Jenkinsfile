@@ -2,11 +2,7 @@
 
 node() {
   def root = tool name: 'Go 1.9', type: 'go'
-  environment {
-       GOROOT = "${root}"
-       PATH = "${root}/bin:$PATH"
-       GOPATH = "${WORKSPACE}"
-   }
+
   stage('Preparation') {
     checkout scm
   }
@@ -14,8 +10,15 @@ node() {
     sh "${root}/bin/go build"
   }
   stage ('Test') {
-    sh "${root}/bin/go test -v > tests.out"
-    sh "${root}/bin/go get github.com/tebeka/go2xunit"
-    sh "cat tests.out | ${root}/bin/go2xunit -output tests.xml"
+   withEnv(["GOROOT=${root}", "GOPATH=${WORKSPACE}", "PATH+GO=${root}/bin", "GOBIN=${WORKSPACE}/bin"]){
+      sh "go test -v > tests.out"
+      sh "go install github.com/tebeka/go2xunit"
+      sh "cat tests.out | '${WORKSPACE}/bin/go2xunit' -output tests.xml"
+      junit "tests.xml"
+    }
+  }
+  stage ('Archive') {
+    archiveArtifacts '**/tests.out'
+    archiveArtifacts '**/tests.xml'
   }
 }
