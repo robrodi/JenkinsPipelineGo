@@ -10,9 +10,12 @@ node() {
   stage('Preparation') {
     checkout scm
   }
-  stage ('Compile')
-  {
-    sh "echo $path"
+  stage ('Compile') {
     sh "${root}/bin/go build"
+  }
+  stage ('Test') {
+    sh "${root}/bin/go test -v > tests.out"
+    sh "${root}/bin/go get github.com/tebeka/go2xunit"
+    sh "cat tests.out | ${root}/bin/go2xunit -output tests.xml"
   }
 }
