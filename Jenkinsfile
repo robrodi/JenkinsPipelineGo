@@ -14,6 +14,7 @@ node() {
     withEnv(["GOPATH=${WORKSPACE}", "PATH+GO=${root}/bin:${WORKSPACE}/bin", "GOBIN=${WORKSPACE}/bin"]){
       sh "go get github.com/golang/lint/golint"
       sh "golint ."
+      sh "go vet ."
       warnings canComputeNew: true, canResolveRelativePaths: true, categoriesPattern: '', consoleParsers: [[parserName: 'Go Vet'], [parserName: 'Go Lint']], defaultEncoding: '', excludePattern: '', healthy: '0', includePattern: '', messagesPattern: '', unHealthy: ''
     }
   }
