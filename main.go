@@ -6,5 +6,6 @@ func myAdd(x int, y int) int {
 }
 func dont_use_me(){}
 func main() {
-    fmt.Println("hello world")
+  i := 5
+    fmt.Println("hello world %s", i)
 }
