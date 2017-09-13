@@ -29,12 +29,12 @@ node() {
       sh "go test -v -coverprofile=coverage.out -covermode count > tests.out"
 
       // convert tests result
-      sh "go install github.com/tebeka/go2xunit"
+      sh "go get github.com/tebeka/go2xunit"
       sh "go2xunit < tests.out -output tests.xml"
       junit "tests.xml"
 
       // convert coverage
-      sh "go install github.com/t-yuki/gocover-cobertura"
+      sh "go get github.com/t-yuki/gocover-cobertura"
       sh "gocover-cobertura < coverage.out > coverage.xml"
 
       step([$class: 'CoberturaPublisher', coberturaReportFile: 'coverage.xml'])
