@@ -1,6 +1,10 @@
 # JenkinsPipelineGo
 Playing with Jenkins Pipelines &amp; Golang
 
+## Jenkins Prereqs
+* Install Jenkins' go plugin.  Manage Jenkins -> Global Tool Configuration -> Add Go -> Name = `Go 1.9`
+* Warnings plugin
+
 ## Steps
 * Use default scm
 * default `go compile`
