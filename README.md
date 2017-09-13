@@ -8,7 +8,14 @@ Playing with Jenkins Pipelines &amp; Golang
 * Warnings plugin
 * Cobertura plugin
 
-## Steps
+## Setting up the job
+* Create a new pipeline job
+* Use github to this repo.
+* Pipeline -> Pipeline script from SCM
+* SCM Git, pointed at this repo!
+* Script file should be `Jenkinsfile`
+
+## Pipeline Steps
 * Use default scm
 * default `go compile`
 * `golint` & `go vet`, both plumbed to [warnings](https://wiki.jenkins.io/display/JENKINS/Warnings+Plugin)
