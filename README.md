@@ -2,6 +2,8 @@
 Playing with Jenkins Pipelines &amp; Golang
 
 ## Jenkins Prereqs
+* `docker pull jenkins`
+*  `docker run -d -p [your port here]:8080 -v [your host path here]:/var/jenkins_home:z -t jenkins`
 * Install Jenkins' go plugin.  Manage Jenkins -> Global Tool Configuration -> Add Go -> Name = `Go 1.9`
 * Warnings plugin
 * Cobertura plugin
