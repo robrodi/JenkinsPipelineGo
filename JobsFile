@@ -2,7 +2,11 @@
 
 pipelineJob('PipelineFromDsl') {
 	def repo = "https://github.com/robrodi/JenkinsPipelineGo.git"
-  	triggers {
+  	
+    triggers {
 		scm('H/5 * * * *')
   	}
+    description("Pipeline for $repo")
+
+    scriptFile('JenkinsFile')
 }
