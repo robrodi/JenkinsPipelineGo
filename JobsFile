@@ -6,14 +6,11 @@ pipelineJob('PipelineFromDsl') {
     triggers {
 		scm('H/5 * * * *')
   	}
-    description("Pipeline for $repo")
-    scm {
-	    github('robrodi/JenkinsPipelineGo')
-    }
-    steps{
-          shell('echo START')
-
-	  groovyScriptFile('JenkinsFile')  
+   definition {
+        cps {
+            script(readFileFromWorkspace('JenkinsFile'))
+            sandbox()
+        }
     }
     
 }
