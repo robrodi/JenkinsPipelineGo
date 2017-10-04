@@ -8,7 +8,7 @@ pipelineJob('PipelineFromDsl') {
   	}
    definition {
         cps {
-            script(readFileFromWorkspace('JenkinsFile'))
+            groovyScriptFile('JenkinsFile')
             sandbox()
         }
     }
