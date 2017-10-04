@@ -7,9 +7,10 @@ pipelineJob('PipelineFromDsl') {
 		scm('H/5 * * * *')
   	}
    definition {
-        cps {
-            groovyScriptFile('JenkinsFile')
-            sandbox()
+        cpsScm {
+            scm {
+                github('robrodi/JenkinsPipelineGo')
+            }
         }
     }
     
