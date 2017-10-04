@@ -1,0 +1,17 @@
+#!/usr/bin/env groovy
+
+pipelineJob('PipelineFromDsl') {
+	def repo = "https://github.com/robrodi/JenkinsPipelineGo.git"
+  	
+    triggers {
+		scm('H/5 * * * *')
+  	}
+   definition {
+        cpsScm {
+            scm {
+                github('robrodi/JenkinsPipelineGo')
+            }
+        }
+    }
+    
+}
