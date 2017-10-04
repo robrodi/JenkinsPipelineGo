@@ -8,5 +8,5 @@ pipelineJob('PipelineFromDsl') {
   	}
     description("Pipeline for $repo")
 
-    scriptFile('JenkinsFile')
+    
 }
