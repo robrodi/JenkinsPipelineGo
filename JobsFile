@@ -11,7 +11,8 @@ pipelineJob('PipelineFromDsl') {
 	    github('robrodi/JenkinsPipelineGo')
     }
     steps{
-         echo 'start'
+          shell('echo START')
+
 	  groovyScriptFile('JenkinsFile')  
     }
     
