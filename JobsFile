@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
-DoPipelineJob('PipelineFromDsl')
+DoPipelineJob('PipelineFromDsl1')
+DoPipelineJob('PipelineFromDsl2')
 
 def DoPipelineJob(name) {
 	pipelineJob(name) {
