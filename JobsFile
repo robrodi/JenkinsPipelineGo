@@ -3,6 +3,7 @@ DoPipelineJob('PipelineFromDsl1')
 DoPipelineJob('PipelineFromDsl2')
 
 def DoPipelineJob(name) {
+	folder 'Generated'
 	pipelineJob(name) {
 		def repo = "https://github.com/robrodi/JenkinsPipelineGo.git"
 
