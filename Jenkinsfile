@@ -1,11 +1,8 @@
 #!/usr/bin/env groovy
 // https://www.cloudbees.com/blog/top-10-best-practices-jenkins-pipeline-plugin
-agent {
-        docker { image 'golang:alpine' }
-    }
 node() {
   def root = tool name: 'Go 1.9', type: 'go'
-    
+        docker.image('golang:alpine'){
   stage('Preparation') {
     checkout scm
   }
@@ -45,4 +42,5 @@ node() {
   stage ('Archive') {
     archiveArtifacts '**/tests.out, **/tests.xml, **/coverage.out, **/coverage.xml, **/coverage2.xml'
   }
+        }
 }
