@@ -3,7 +3,9 @@
 
 node() {
   def root = tool name: 'Go 1.9', type: 'go'
-
+    agent {
+        docker { image 'golang:alpine' }
+    }
   stage('Preparation') {
     checkout scm
   }
