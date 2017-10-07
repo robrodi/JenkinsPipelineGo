@@ -38,3 +38,9 @@ Playing with Jenkins Pipelines &amp; Golang
 * Check `Configure Build Authorization` and Select `Run as User who Triggered Build`
 * Run it
 * see that a job called `PipelineFromDSL` was created, run that and hopefully it works and made a beautiful pipeline build!
+
+## Docker
+This doesn't work right if you're using my docker instracutions above.  
+* Make sure docker is installed and running
+* add \Program Files\Git\usr\bin to path so jenkins can find its binaries.
+* 
